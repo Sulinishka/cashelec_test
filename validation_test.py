@@ -9,7 +9,7 @@ class TestStringMethods(unittest.TestCase):
     def setUp(self):
         if not self.setup_done:
             self.request_api = test_wrapper.RequestAPI()
-            self.setup_done = True
+            self.__class__.setup_done = True
     
     def test_endpoints_resp_time(self):
         pings = [self.request_api.get_ping(url) for url in self.request_api.urls]

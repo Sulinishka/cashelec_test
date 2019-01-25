@@ -4,9 +4,12 @@ import test_wrapper
 
 
 class TestStringMethods(unittest.TestCase):
-   
+    setup_done = False
+    
     def setUp(self):
-        self.request_api = test_wrapper.RequestAPI()
+        if not self.setup_done:
+            self.request_api = test_wrapper.Request_API()
+            self.setup_done = True
     
     def test_endpoints_resp_time(self):
         pings = [self.request_api.get_ping(url) for url in self.request_api.urls]

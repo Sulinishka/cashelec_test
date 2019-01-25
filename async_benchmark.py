@@ -21,7 +21,7 @@ class Benchmark():
         self.elapsed_time = time.time() - start_time
         self.rps = self.MAX_WORKERS/self.elapsed_time
         self.percentile_80 = np.percentile(self.responses, 80)
-
+        print ("rps", self.rps, "80%latency", self.percentile_80)
     async def parallel_request(self): 
         futures = []
         for n in range(self.MAX_WORKERS):

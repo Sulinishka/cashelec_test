@@ -16,6 +16,7 @@ class RequestAPI():
         self.ticker = requests.get(self.api_url).json()
         self.top_10 = self.extract_top_10()
         self.urls = self.get_target_urls()
+        print("top10 ", self.top_10)
         
     def extract_top_10(self):
         currencies = self.ticker["data"]
@@ -56,7 +57,7 @@ class RequestAPI():
             delta_days = datetime.now() - last_updated_dt
             return delta_days
         except BaseException as e:
-            print("\nErr: ", e, resp)
+            print("\nErr: ", "you banned", e, resp)
 
 
 
